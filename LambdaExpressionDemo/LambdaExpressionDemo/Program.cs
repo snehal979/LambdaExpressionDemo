@@ -6,9 +6,14 @@
         {
             List<Person> listPersonInCity = new List<Person>();
             AddRecord(listPersonInCity);
-            
+            Retrieving_TopTwoRecord_ForAgeIsLessThan60(listPersonInCity);
+
+
         }
-        //uc1
+        /// <summary>
+        /// Uc1
+        /// </summary>
+        /// <param name="listPersonInCity"></param>
         private static void AddRecord(List<Person> listPersonInCity)
         {
             listPersonInCity.Add(new Person(1, "Snehal", "plot no 12,sindewahi" ,24));
@@ -29,8 +34,15 @@
                 Console.WriteLine("Id person :"+data.Id+"\n Name : "+data.Name+"\n address :"+data.Address+"\n Age: "+data.Age+"\n");
             }
         }
-
-        
+        /// <summary>
+        /// Uc2
+        /// </summary>
+        /// <param name="listPersonInCity"></param>
+        private static void Retrieving_TopTwoRecord_ForAgeIsLessThan60(List<Person> listPersonInCity)
+        {
+            var personList = listPersonInCity.FindAll(e => (e.Age >= 60)).Take(2).ToList();
+            Display(personList);
+        }
         
 
     }
