@@ -10,6 +10,7 @@ namespace LambdaExpressionDemo
             AddRecord(listPersonInCity);
             Retrieving_TopTwoRecord_ForAgeIsLessThan60(listPersonInCity);
             Retrieving_TeenSgePerson(listPersonInCity);
+            AllPersonAverageOfAge(listPersonInCity);
 
 
         }
@@ -58,6 +59,14 @@ namespace LambdaExpressionDemo
             }
             
         }
-
+        /// <summary>
+        /// Uc4
+        /// </summary>
+        /// <param name="listPersonInCity"></param>
+        private static void AllPersonAverageOfAge(List<Person> listPersonInCity)
+        {
+            double average = listPersonInCity.Average(e => e.Age);
+            Console.WriteLine("the average of all person age is " +average);
+        }
     }
 }
