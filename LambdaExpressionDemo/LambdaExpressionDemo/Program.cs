@@ -8,10 +8,11 @@ namespace LambdaExpressionDemo
         {
             List<Person> listPersonInCity = new List<Person>();
             AddRecord(listPersonInCity);
-            Retrieving_TopTwoRecord_ForAgeIsLessThan60(listPersonInCity);
-            Retrieving_TeenSgePerson(listPersonInCity);
-            AllPersonAverageOfAge(listPersonInCity);
-            CheckNamePresent(listPersonInCity);
+            //Retrieving_TopTwoRecord_ForAgeIsLessThan60(listPersonInCity);
+            //Retrieving_TeenSgePerson(listPersonInCity);
+            //AllPersonAverageOfAge(listPersonInCity);
+            //CheckNamePresent(listPersonInCity);
+            Skip_TopTwoRecord_ForAgeIsLessThan60(listPersonInCity);
 
 
         }
@@ -29,7 +30,7 @@ namespace LambdaExpressionDemo
             listPersonInCity.Add(new Person(6, "Anu", "plot no 57,sindewahi", 80));
             listPersonInCity.Add(new Person(7, "Mayur", "plot no 29,sindewahi", 9));
             listPersonInCity.Add(new Person(8, "Bharti", "plot no 10,sindewahi", 45));
-            Display(listPersonInCity);
+            //Display(listPersonInCity);
            
         }
         private static void Display(List<Person> listPersonInCity)
@@ -86,6 +87,21 @@ namespace LambdaExpressionDemo
             {
                 Console.WriteLine("Name is not found in list");
             }
+        }
+        /// <summary>
+        /// Uc6 Skip Record from the list for age is less than 60
+        /// </summary>
+        /// <param name="listPersonInCity"></param>
+        private static void Skip_TopTwoRecord_ForAgeIsLessThan60(List<Person> listPersonInCity)
+        {
+            foreach(var data in listPersonInCity.SkipWhile(e => e.Age < 60))
+            {
+                Console.WriteLine("Name "+data.Name+" age "+data.Age);
+            }
+            
+
+
+
         }
     }
 }
