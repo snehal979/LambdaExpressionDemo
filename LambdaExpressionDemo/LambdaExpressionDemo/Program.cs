@@ -1,4 +1,6 @@
-﻿namespace LambdaExpressionDemo
+﻿using System.Collections.Generic;
+
+namespace LambdaExpressionDemo
 {
     class Program
     {
@@ -7,6 +9,7 @@
             List<Person> listPersonInCity = new List<Person>();
             AddRecord(listPersonInCity);
             Retrieving_TopTwoRecord_ForAgeIsLessThan60(listPersonInCity);
+            Retrieving_TeenSgePerson(listPersonInCity);
 
 
         }
@@ -43,7 +46,18 @@
             var personList = listPersonInCity.FindAll(e => (e.Age >= 60)).Take(2).ToList();
             Display(personList);
         }
-        
+        /// <summary>
+        /// uc3
+        /// </summary>
+        /// <param name="listPersonInCity"></param>
+        private static void Retrieving_TeenSgePerson(List<Person> listPersonInCity)
+        {
+            if(listPersonInCity.Any(e => (e.Age >= 13 && e.Age < 19)))
+            {
+                Console.WriteLine("Yes, WE have some TEEN_AGE IN THE LIST");
+            }
+            
+        }
 
     }
 }
