@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace LambdaExpressionDemo
 {
@@ -6,13 +7,16 @@ namespace LambdaExpressionDemo
     {
         public static void Main(string[] args)
         {
+            
             List<Person> listPersonInCity = new List<Person>();
             AddRecord(listPersonInCity);
-            //Retrieving_TopTwoRecord_ForAgeIsLessThan60(listPersonInCity);
-            //Retrieving_TeenSgePerson(listPersonInCity);
-            //AllPersonAverageOfAge(listPersonInCity);
-            //CheckNamePresent(listPersonInCity);
+            Retrieving_TopTwoRecord_ForAgeIsLessThan60(listPersonInCity);
+            Retrieving_TeenSgePerson(listPersonInCity);
+            AllPersonAverageOfAge(listPersonInCity);
+            CheckNamePresent(listPersonInCity);
             Skip_TopTwoRecord_ForAgeIsLessThan60(listPersonInCity);
+            Console.WriteLine("--------------------");
+            Remove(listPersonInCity);
 
 
         }
@@ -103,5 +107,21 @@ namespace LambdaExpressionDemo
 
 
         }
+        /// <summary>
+        ///  Remove specific name from the list
+        /// </summary>
+
+        private static void Remove(List<Person> listPersonInCity)
+        {
+            Console.WriteLine("Enter the name is present or not");
+            string Names = Console.ReadLine();
+
+            listPersonInCity.RemoveAll(e => (e.Name == Names));
+            if (listPersonInCity.TrueForAll(e => e.Name != Names))
+            {
+                Console.WriteLine("No person is found with  name in current list");
+            }
+        }
+
     }
 }
